@@ -17,18 +17,31 @@ tyler = {
     "tests": [100.0, 100.0]
 }
 
-
+# numbers = ([5,6,10])
 def average(numbers):
-    total = sum(numbers)
-    total = float(total)
-    for score in numbers:
-        return total / len(numbers)
+    total = float(sum(numbers))
+    return total / len(numbers)
+
+# print average(numbers)
+print "Lloyd test average:"
+print average(lloyd["tests"])
+print "Alice test average:"
+print average(alice["tests"])
+print "Tyler test average:"
+print average(tyler["tests"])
 
 def get_average(student):
     homework = average(student["homework"])
     quizzes = average(student["quizzes"])
     tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+
+print "Lloyd class average"
+print get_average(lloyd)
+print "Alice class average"
+print get_average(alice)
+print "Tyler class average"
+print get_average(tyler)
 
 def get_letter_grade(score):
     if score >= 90.0:
@@ -41,12 +54,18 @@ def get_letter_grade(score):
         return "D"
     else:
         return "F"
-get_letter_grade(get_average)
 
-students = [lloyd, alice, tyler]
-results = []
-
-def get_class_average(students):
-    for item in students:
-        results.append(get_class_average(item))
-        return average(results)
+print "Lloyd letter grade"
+print get_letter_grade(get_average(lloyd))
+print "Alice letter grade"
+print get_letter_grade(get_average(alice))
+print "Tyler letter grade"
+print get_letter_grade(get_average(tyler))
+#
+# students = [lloyd, alice, tyler]
+# results = []
+#
+# def get_class_average(students):
+#     for item in students:
+#         results.append(get_class_average(item))
+#         return average(results)
