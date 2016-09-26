@@ -30,10 +30,10 @@ print average(alice["tests"])
 print "Tyler test average:"
 print average(tyler["tests"])
 
-def get_average(student):
-    homework = average(student["homework"])
-    quizzes = average(student["quizzes"])
-    tests = average(student["tests"])
+def get_average(student0A):
+    homework = average(student0A["homework"])
+    quizzes = average(student0A["quizzes"])
+    tests = average(student0A["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
 
 print "Lloyd class average"
@@ -61,11 +61,16 @@ print "Alice letter grade"
 print get_letter_grade(get_average(alice))
 print "Tyler letter grade"
 print get_letter_grade(get_average(tyler))
-#
-# students = [lloyd, alice, tyler]
-# results = []
-#
-# def get_class_average(students):
-#     for item in students:
-#         results.append(get_class_average(item))
-#         return average(results)
+
+students = (lloyd, alice, tyler)
+results = []
+
+def get_class_average(student0B):
+    for student in students:
+        classAvg = get_average(student)
+        results.append(classAvg)
+        return average(results)
+
+print "class average grade"
+get_class_average(students)
+print results
