@@ -1,77 +1,51 @@
-lloyd = {
-    "name": "Lloyd",
-    "homework": [90.0, 97.0, 75.0, 92.0],
-    "quizzes": [88.0, 40.0, 94.0],
-    "tests": [75.0, 90.0]
-}
-alice = {
-    "name": "Alice",
-    "homework": [100.0, 92.0, 98.0, 100.0],
-    "quizzes": [82.0, 83.0, 91.0],
-    "tests": [89.0, 97.0]
-}
-tyler = {
-    "name": "Tyler",
-    "homework": [0.0, 87.0, 75.0, 22.0],
-    "quizzes": [0.0, 75.0, 78.0],
-    "tests": [100.0, 100.0]
+# take weighted average of dictionary keys
+this section takes a weighted average of dictionaries with float key arrays
+from random import randint
+print "Random Number"
+print(randint(0,100))
+
+dictionary1 = {
+    "name"       : "Dictionary1",
+    "numbersetA" : [21.0, 66.0, 39.0],
+    "numbersetB" : [13.0, 22.0, 60.0, 55.0],
+    "numbersetC" : [22.0, 85.0]
 }
 
-# numbers = ([5,6,10])
+dictionary2 = {
+    "name"       : "Dictionary2",
+    "numbersetA" : [23.0, 17.0, 49.0],
+    "numbersetB" : [37.0, 92.0, 82.0, 53.0],
+    "numbersetC" : [13.0, 43.0]
+}
+
 def average(numbers):
     total = float(sum(numbers))
     return total / len(numbers)
 
-# print average(numbers)
-print "Lloyd test average:"
-print average(lloyd["tests"])
-print "Alice test average:"
-print average(alice["tests"])
-print "Tyler test average:"
-print average(tyler["tests"])
+print "Dictionary 1 Set A average"
+print average(dictionary1["numbersetA"])
+print "Dictionary 2 Set A average"
+print average(dictionary1["numbersetA"])
 
-def get_average(student0A):
-    homework = average(student0A["homework"])
-    quizzes = average(student0A["quizzes"])
-    tests = average(student0A["tests"])
-    return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+def get_weighted_average(dictionary):
+    A = average(dictionary["numbersetA"])
+    B = average(dictionary["numbersetB"])
+    C = average(dictionary["numbersetC"])
+    return 0.1 * A + 0.3 * B + 0.6
 
-print "Lloyd class average"
-print get_average(lloyd)
-print "Alice class average"
-print get_average(alice)
-print "Tyler class average"
-print get_average(tyler)
+print "Average of Dictionary 1"
+print get_weighted_average(dictionary1)
+print "Average of Dictionary 2"
+print get_weighted_average(dictionary2)
 
-def get_letter_grade(score):
-    if score >= 90.0:
-        return "A"
-    elif score >= 80:
-        return "B"
-    elif score >= 70:
-        return "C"
-    elif score >= 60:
-        return "D"
-    else:
-        return "F"
+dictionaries = [dictionary1, dictionary2]
 
-print "Lloyd letter grade"
-print get_letter_grade(get_average(lloyd))
-print "Alice letter grade"
-print get_letter_grade(get_average(alice))
-print "Tyler letter grade"
-print get_letter_grade(get_average(tyler))
-
-students = ["lloyd","alice","tyler"]
-
-def get_class_average(students):
+def get_whole_average(dictionaries):
     results = []
-    for student in students:
-        results.append(get_average(student))
-        print results
+    for dictionary in dictionaries:
+        x = get_weighted_average(dictionary)
+        results.append(x)
     return average(results)
 
-print results
-
-
-# def get_class_letter(students0C)
+print "Average of Dictionaries 1 and 2 with weighted average"
+print get_whole_average(dictionaries)
