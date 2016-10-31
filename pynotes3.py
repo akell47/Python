@@ -23,3 +23,15 @@ b = 4
 print is_int(b)
 c = 4.0
 print is_int(c)
+
+def is_prime(x):
+    x = abs(x)
+    if x > 1:
+        for i in range(2, x):
+            if x % abs(i) == 0:
+                retrun False
+                break
+    elif x == 1 or x == 0:
+        return False
+
+print b, is_prime(b)
