@@ -51,3 +51,26 @@ len(phrase_list)
 # count characters in each word in phrase
 for word in phrase_list:
     print len(word)
+# way 1
+lengthOfWords = []
+for word in phrase_list:
+    lengthOfWords.append(len(word))
+print lengthOfWords
+# way 2
+lengthOfWords2 = [len(word) for word in phrase_list]
+print lengthOfWords2
+# way 3
+lentghOfWords3 = map(len, phrase_list)
+print lentghOfWords3
+# way 4
+lengthOfWords4 = map (lambda word: len (word), phrase_list)
+print lengthOfWords4
+
+# add || bewteen each word
+# one way
+sen1 = ("||").join(phrase_list)
+print sen1
+# another way
+delim = "||"
+sen2 = delim.join(phrase_list)
+print sen2
