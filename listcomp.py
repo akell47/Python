@@ -91,4 +91,46 @@ print a_setComp
 a_gen2 = (n*n for n in nums)
 
 for i in a_gen2:
-#     print i
+    print i
+
+myList = range(0,100)
+
+# function that multiplies each number in myList by a given number
+def ntimesit (parameter, myList):
+    return [parameter * num for num in myList]
+print ntimesit(2,myList)
+print ntimesit(.5, myList)
+
+# filter out values in myList by a parameter then multiply that filtered set by
+# another parameter
+def filterAndMultiply(alist, x, y):
+    filterit = [num for num in alist if num > y]
+    timesit = [x * num for num in filterit]
+    return timesit
+
+print filterAndMultiply(myList, 100, 20)
+
+# function that return a probability given two parameters
+def probabilityFunc(c,n):
+    return (float(c)/n)*100
+
+# then find the probability that if random number from myList \
+# that it will be even using probabilityFunc
+# function for even numbers
+evenNumbers = [n for n in myList if n % 2 == 0]
+
+totalEven = len(evenNumbers)
+totalNumbers = len(myList)
+probabilityEven = probabilityFunc(totalEven, totalNumbers)
+print probabilityEven
+print "probability of selecting even number,\
+from a range of numbers 0 to 100 is {}%".format(probabilityEven)
+
+# function for probability of list of numbers greater than a parameter
+def cumulativeProbability(numsList, q):
+    greaterThan = [num for num in numsList if num > q]
+    totalGreater = len(greaterThan)
+    probability = float(totalGreater)/len(numsList)
+    return probability
+print "percent of numbers greater than 20 in range of numbers 0 to 100 .\
+is : {}".format(cumulativeProbability(myList, 20))

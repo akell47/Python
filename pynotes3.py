@@ -74,3 +74,13 @@ print sen1
 delim = "||"
 sen2 = delim.join(phrase_list)
 print sen2
+
+
+# even numbers
+myList1 = range(0,100)
+
+def getEvenNums2(list):
+    for i in list:
+        if i % 2 == 1:
+            return i
+print getEvenNums2(myList1)
