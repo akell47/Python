@@ -53,17 +53,26 @@ print a_list4comp
 # Dictionary comprehension
 names = ["Bruce", "Clark", "Peter", "Logan", "David"]
 heroes = ["Batman", "Superman", "Spiderman", "Wolverine", "Hulk"]
-print zip(names, heroes)
+ages = [55, 200, 22, 1000, 40]
+print zip(names, heroes, ages)
 # creates touple matched by same index
 a_dictionary = {}
-for name, hero in zip(names,heroes):
+for name, hero, age in zip(names, heroes, ages):
     a_dictionary[name] = hero
+print "names heroes dictionary"
 print a_dictionary
 
+# age = ages.get("Bruce", "Unknown")
+# print "Bruce is %s years old" % age
+
 # list comprehension
-a_dicComp = {name : hero for name, hero in zip(heroes,names)}
+a_dicComp = {name : hero for name, hero in zip(heroes, names)}
+print "names heroes dictionary via list comp"
 print a_dicComp
 
+a_dicComp_age = {name : age for name, age in zip(names, ages)}
+print "superhero ages"
+print a_dicComp_age
 # remove the shitty super hero
 a_dicComp2 = {name : hero for name, hero in zip(names, heroes) if name != "Bruce"}
 print a_dicComp2
@@ -78,6 +87,11 @@ print a_set
 
 a_setComp = {n for n in nums2}
 print a_setComp
+
+# get not working for list
+# third_num = nums2.get(index[2])
+# print nums2
+# print "third num is %n" % third_num
 
 # Generator Expressions
 # yield number * number for each number in nums
@@ -134,3 +148,57 @@ def cumulativeProbability(numsList, q):
     return probability
 print "percent of numbers greater than 20 in range of numbers 0 to 100 .\
 is : {}".format(cumulativeProbability(myList, 20))
+
+sentence = "the quick brown fox jumps over the lazy dog"
+words = sentence.split()
+word_lengths = [len(word) for word in words if word != "the"]
+# prints lengths of words not including "the"
+print word_lengths
+
+names = ["Bruce", "Clark", "Peter", "Logan", "David"]
+heroes = ["Batman", "Superman", "Spiderman", "Wolverine", "Hulk"]
+
+# enumerate
+for i, name in enumerate(names):
+    print(i, name)
+
+Xlist = [1,3,5,2,3]
+Ylist = [9,6,8,5,7]
+# zip
+for x, y in zip(Xlist, Ylist):
+     print (x, y)
+
+x = 1
+y = 9
+# swap X and Y values
+print "before x = %d, y= %d" % (x , y)
+# touple unpacking
+x, y = y, x
+print "after x = %d, y = %d" % (x , y)
+
+print "before Xs = {}, Ys = {}" .format(Xlist, Ylist)
+Xlist, Ylist = Ylist, Xlist
+print "after Xs = {}, Ys = {}" .format(Xlist, Ylist)
+
+needle = "d"
+haystack = ["a", "b", "c", "d"]
+print "needle in haystack?"
+for letter in haystack:
+    if needle == letter:
+        print "Found!"
+        break
+else:
+    print "Not Found!"
+
+# with open (file.txt) as f:
+#     for line in f:
+#         print (line)
+
+try:
+    print(int("x"))
+except:
+    print "Conversion Failed!"
+else:
+    print "Conversion Successful"
+finally:
+    print "Done"
