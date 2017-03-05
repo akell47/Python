@@ -70,21 +70,25 @@ n! = n * (n-1)....2*1
 
 ## Sequence Types and Sequence Operations
 
-* sequence - a collection of objects ordered by their position
+* sequence - a collection of objects ordered by their position <br/>
 **Three Types**
 * Lists
 * Tuples
 * 'Range Objects'
 
 indexing starts a 0
+```
 `s = [4,3,2,6]`
 `s[0] = 4`
 `s[-1] = 6`
+```
 **Slicing**
+```
 `s[2] = 2`
 `s[0:2] = 4,3,2` s[start, stop]
 `s[-0] = 1`
 `s[-0:0] = ()`
+```
 
 ## Lists
 
@@ -113,9 +117,11 @@ tuples in for loops - lists of tuples, each tuple consists of two numbers
 c = (2,3)
 type(c)
 tuple
+
 c = (2)
 type(c)
 int
+
 c = (2,)
 type(c)
 tuple
