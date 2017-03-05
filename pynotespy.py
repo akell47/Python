@@ -24,6 +24,7 @@ from math import pi
 
 import numpy as np
 
+
 math.sqrt
 np.sqrt
 
@@ -39,3 +40,7 @@ print type(name)
 # object is a string
 print dir(name)
 # prints list of methods available to the methods
+
+123 + 34
+
+
