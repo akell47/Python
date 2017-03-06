@@ -78,16 +78,16 @@ n! = n * (n-1)....2*1
 
 indexing starts a 0
 ```
-`s = [4,3,2,6]`
-`s[0] = 4`
-`s[-1] = 6`
+s = [4,3,2,6]
+s[0] = 4
+s[-1] = 6
 ```
 **Slicing**
 ```
-`s[2] = 2`
-`s[0:2] = 4,3,2` s[start, stop]
-`s[-0] = 1`
-`s[-0:0] = ()`
+s[2] = 2
+s[0:2] = 4,3,2 s[start, stop]
+s[-0] = 1
+s[-0:0] = ()
 ```
 
 ## Lists
@@ -107,11 +107,11 @@ example - want to return more than one object from a function - typically wrap a
 **Pack and un-pack tuples**
 `x = 12.23` `y = 23.34`
 `coordinate = (x,y)` - tuple packing
-`(c1, c2) = coordinate`
+(c1, c2) = coordinate`
 tuples in for loops - lists of tuples, each tuple consists of two numbers
 ```
-`for (x,y) in coordinate
-  print (x , y)`
+for (x,y) in coordinate
+  print (x , y)
 ```
 ```
 c = (2,3)
@@ -126,3 +126,105 @@ c = (2,)
 type(c)
 tuple
 ```
+
+## Rnges
+
+* `range(#)` - immutable sequence of integers - commonly used in for loops.
+```
+list(range(5))
+[0,1,2,3,4]
+```
+range(start, step, size) <br/>
+```
+range(1,14,2)
+[1, 3, 5, 7, 9, 11, 13]
+```
+large data - first list - uses up space. Use range objects as is don't turn to lists right away. Ranges do not instantiate their elements, making them more efficient in loops.
+
+## Strings
+
+'' or " " or ''' '''
+* strings - immutable sequences of characters. a concatenation of characters.
+
+```
+s = '''python'''
+len(s)
+6
+s[::-1]
+nohtyp
+```
+**polymorphism**
+- what an operator does depends on the type of objects that it is being applied to. have to define addition separately for numbers. add with `+`.
+- dir(str) all the help on strings
+```
+"hi" + str(2)
+hi2
+```
+
+```
+name = "Amber"
+name_a = name.replace("A", "a")
+# must assign to new variable because strings are immutable
+```
+```
+type(name)
+str
+
+name_s = name.split()
+type(name_s)
+list
+```
+`"12,000".isdigit()` False
+
+## Sets
+
+* Sets - unordered collection of distinct hashable objects
+**hashable** - can use sets for immutable ojbects <br/>
+
+**Sets**
+* a set - mutable
+* a frozen set - immutable
+- cannot be indexed
+- can never be duplicated, unique
+Sets useful for keeping track distinct objects and doing operations like unions, intersection, and set differences.
+https://docs.python.org/2/library/sets.html
+
+## Dictionaries
+
+* Dictionaries - mapping from key objects to value objects
+keys must be immutable values can be anything
+- can be used for fast lookups
+- do not maintain order. - looping occurs over random order
+
+## Dynamic Typing
+
+Type - computer memory - sequence of 0s and 1s.  Read sequences in chunk of bits. What type? one variable to another no match loose information. float to int - ok. int gets float info lost. <br/>
+Statically typed - C, C++ - type checking is preforming during compiling time  <br/>
+dynamically typed - python - type checking is preformed during run time <br/>
+* variable
+* object
+* reference
+`x = 3` py creats objects 3 variable name x and assignment <br/>
+variable names and objects stored in different parts of computer memory. Variable names link to objects, never to other variables. Variable = reference to the object.
+
+* two variable names can represent the same object!
+another name for the same list
+```
+List1 = [2,3,4]
+List2 = List1
+List1[0] = 20
+List2
+[20,3,4]
+#you thought you had two lists, but just two variable names representing the same list object
+```
+mutable objects can be identical in content, but different in objects.
+```
+a = [1,2,3]
+b = [1,2,3]
+a == b
+True
+a is b
+False
+```
+`a = list(b)` creates a new object but with identical content.
+`a = b[:]` same thing
