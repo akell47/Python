@@ -127,7 +127,7 @@ type(c)
 tuple
 ```
 
-## Rnges
+## Ranges
 
 * `range(#)` - immutable sequence of integers - commonly used in for loops.
 ```
@@ -178,6 +178,8 @@ list
 
 ## Sets
 
+`(value3,value4,value6,value2)`
+
 * Sets - unordered collection of distinct hashable objects
 **hashable** - can use sets for immutable ojbects <br/>
 
@@ -191,6 +193,7 @@ https://docs.python.org/2/library/sets.html
 
 ## Dictionaries
 
+`"{ "Key" : value }`
 * Dictionaries - mapping from key objects to value objects
 keys must be immutable values can be anything
 - can be used for fast lookups
@@ -228,3 +231,36 @@ False
 ```
 `a = list(b)` creates a new object but with identical content.
 `a = b[:]` same thing
+
+## Copies
+
+`import copy` copy module - for creating identical copies of an object
+* Shallow Copy - constructs a new compound object - only references the objects in the copied objects
+* Deep Copy - constructs a new compound object and then recursively inserts copies into it of the original objects
+
+## Statements
+
+**statements** - used to compute values, assign values, modify attributes, etc.
+* Return - return values from a function
+* Import - import modules
+* Pass - do nothing - place holder -
+
+**Compound Statements** - contain groups of other statements and control the execution of other statements in some other way. Consists of one or more **clauses** - consists of header and a block of code. **header** - `keyword:` start with keyword and end in **:**- all at same indention level. - indented at the same level - form a group of statements. - indentation determines logical structure of functions/ programs.
+```
+#header
+if x > y:
+#block of code
+  difference = x - y
+  print ("x is greater than y")
+print ("always printed")
+```
+```
+if test:
+  [block of code]
+elif test:
+  [block of code]
+else:
+  [block of code]
+```
+
+## For and While Loops
