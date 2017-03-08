@@ -134,7 +134,7 @@ tuple
 list(range(5))
 [0,1,2,3,4]
 ```
-range(start, step, size) <br/>
+`range(start, step, size)`
 ```
 range(1,14,2)
 [1, 3, 5, 7, 9, 11, 13]
@@ -143,7 +143,7 @@ large data - first list - uses up space. Use range objects as is don't turn to l
 
 ## Strings
 
-'' or " " or ''' '''
+``''`` or ``" "`` or ``''' '''``
 * strings - immutable sequences of characters. a concatenation of characters.
 
 ```
@@ -193,7 +193,7 @@ https://docs.python.org/2/library/sets.html
 
 ## Dictionaries
 
-`"{ "Key" : value }`
+`{ "Key" : value }`
 * Dictionaries - mapping from key objects to value objects
 keys must be immutable values can be anything
 - can be used for fast lookups
@@ -264,3 +264,39 @@ else:
 ```
 
 ## For and While Loops
+
+**For Loops** sequence iteration that assigns items in sequence and runs the block of code for each item. - run as many times as there are items in the sequence. `for target in sequence` - starts at index 0 then runs the block of code.
+
+```
+dictionary = {"aa":1, "bb":2, "cc":3, "dd":4}
+for k in dictionary:
+  print k
+aa
+cc
+dd
+bb
+
+for k in dictionary:
+  print (k, dictionary[k])
+('aa', 1)
+('cc', 3)
+('dd', 4)
+('bb', 2)
+
+for k in sorted(dictionary.keys(),reverse = True):
+   print (k, age[k])
+('dd', 4)
+('cc', 3)
+('bb', 2)
+('aa', 1)
+
+for v in dictionary:
+  if
+```
+
+**While Loops** -repeated execution of code as long as given expression is true. - repeatedly texts the expression. If true - executes first block of code, if false - executes the second block of code if present
+
+- while loop - testing some condition some number of times - don't know how many times exactly - unknown number of iterations.
+- for loop - know exactly how many times you want to run the block of code. - set number of iterations
+
+## List Comprehension
