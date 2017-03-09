@@ -300,3 +300,23 @@ for v in dictionary:
 - for loop - know exactly how many times you want to run the block of code. - set number of iterations
 
 ## List Comprehension
+
+fast and elegant
+can accomplish a lot in one line
+https://github.com/akell47/Python/blob/master/listcomp.ipynb
+```
+numbers = range(10)
+numbers
+[0,1,2,3,4,5,6,7,8,9]
+squares = [number ** 2 for number in numbers]
+# given variable square variable - for loop assign value to number
+squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+```
+sum([i**2 for i in range(3)])
+5
+# range(3) is [0,1,2], i in range squared is [0,1,4], sum of that list is 5
+```
+sum odd numbers from 0 through 9
+`sum( [i for i in range(10) if i%2 ==1] )` = 25
