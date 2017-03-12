@@ -320,3 +320,58 @@ sum([i**2 for i in range(3)])
 ```
 sum odd numbers from 0 through 9
 `sum( [i for i in range(10) if i%2 ==1] )` = 25
+
+## Reading and Writing Files
+
+say `linesoftext.txt` has three lines of text like:
+```
+first line
+second line
+third line
+```
+```
+# open() creates file object
+for line in open(filename):
+# rstrip strips white space beween lines
+  line = line.rstrip()
+  print line
+first line
+second line
+third line
+
+for line in open(filename):
+# .split() where there is a whitespace returns a list of each line
+  line = line.rstrip().split(" ")
+  print line
+['first', 'line']
+['second', 'line']
+['third', 'line']
+```
+
+Make a file for Writing
+`F = open(textfile.txt, "w")` <br/>
+`F.write("some text here")` <br/>
+`F.close()`
+
+## Functions 101
+
+devices for grouping statements so they can be easily run more than once in a program. - maximize code reuse and minimize redundancy. - enable dividing larger tasks into smaller chunks - called **procedural decomposition**. written using `def` statement. send the result object back to the caller using the `return` statement. all names created or assigned in a function are local of that function and exist only while the function runs. To modify the value of a global variable from inside a function can use **global** statement. function is called using the function name followed by `()`. the **def** statement creates an object and assigns it to a name. Arguments are passed by assigning objects to local names.
+
+```
+def add(x,y)
+  mysum = x + y
+  return mysum
+
+add(40, 60)
+100
+```
+can use tuples to return multiple values from a function
+```
+def add_sub(a, b):
+  sumit = a + b
+  diffit = a - b
+  return (sumit, difit)
+
+add_sub(40, 60)
+(100, -20)
+```
