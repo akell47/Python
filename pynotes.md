@@ -375,3 +375,25 @@ def add_sub(a, b):
 add_sub(40, 60)
 (100, -20)
 ```
+```
+def password(length):
+    pw = str()
+    char = "abcdefghijklmnopqrstuvwzyz" + "0123456789"
+    for i in range(length):
+        pw = pw + random.choice(char)
+    return pw
+
+print "password of 9 characters is :",password(30)
+```
+returns `gb8lwo92vsdpgcu02izegysny43e4s` for example
+
+## Commmon Mistakes and Errors
+
+- `list index out of range` - indexing longer than how long the sequence is
+- Dictionaries are unordered- key values appear in any order
+- trying an operation not supported by the object - know the type of object you are working with and the methods that object supports
+- trying to access an object in the wrong way. `KeyError 1`
+keys are not numbers, but strings. know the type of the key objects
+- trying to modify immutable Objects
+- trying to operate on objects of different type - str and int -
+- improper indentation - 
