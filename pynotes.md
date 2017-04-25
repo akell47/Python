@@ -396,4 +396,15 @@ returns `gb8lwo92vsdpgcu02izegysny43e4s` for example
 keys are not numbers, but strings. know the type of the key objects
 - trying to modify immutable Objects
 - trying to operate on objects of different type - str and int -
-- improper indentation - 
+- improper indentation -
+
+## Scope and Rules
+
+- each variable name belongs to a certain abstract environment or namespace - context in which a given name exists.
+- *Scope Rules*
+inner layers to outer layers - first one that it finds
+
+- *L* Local
+- *E* Enclosing function
+- *G* Global
+- *B* Built-In 
