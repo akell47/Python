@@ -407,4 +407,27 @@ inner layers to outer layers - first one that it finds
 - *L* Local
 - *E* Enclosing function
 - *G* Global
-- *B* Built-In 
+- *B* Built-In
+
+Local - the current function you're in <br/>
+Enclosing function - the function that called the current function, if any. <br/>
+Global - the module in which the function was defined <br/>
+Built-In - Python's built-in namespace
+
+If python cannot find object - raises name error exception
+
+```
+def update():
+  x.append(1)
+```
+object x -
+x is not defined
+```
+x = [1,1]
+update()
+```
+code runs and modifies list x <br/>
+
+global layer aka scope contains x
+first object of that name it found.
+Can manipulate global layers
