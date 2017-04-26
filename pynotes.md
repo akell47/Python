@@ -466,7 +466,7 @@ n = 1
 increment(n)
 print(n)
 ```
-returns:
+prints:
 ```
 2
 1
