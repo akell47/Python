@@ -404,10 +404,10 @@ keys are not numbers, but strings. know the type of the key objects
 - *Scope Rules*
 inner layers to outer layers - first one that it finds
 
-- *L* Local
-- *E* Enclosing function
-- *G* Global
-- *B* Built-In
+- **L** Local
+- **E** Enclosing function
+- **G** Global
+- **B** Built-In
 
 Local - the current function you're in <br/>
 Enclosing function - the function that called the current function, if any. <br/>
