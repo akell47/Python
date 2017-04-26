@@ -400,8 +400,8 @@ keys are not numbers, but strings. know the type of the key objects
 
 ## Scope and Rules
 
-- each variable name belongs to a certain abstract environment or namespace - context in which a given name exists.
-- *Scope Rules*
+Each variable name belongs to a certain abstract environment or namespace - context in which a given name exists.
+ *Scope Rules*
 inner layers to outer layers - first one that it finds
 
 - **L** Local
@@ -431,3 +431,46 @@ code runs and modifies list x <br/>
 global layer aka scope contains x
 first object of that name it found.
 Can manipulate global layers
+
+remember* - **argument** is an object that is passed to a function as its input when the function is called. <br/>
+**parameter** a variable that is used in the function definition to refer to that argument.
+
+```
+def update(n, x):
+    n = 2
+    x.append(4)
+    print ('update', n, x)
+
+def main():
+    n = 1
+    x = [0,1,2,3]
+    print('main ', n, x)
+    update(n,x)
+    print('main :', n, x)
+
+main()
+```
+prints:
+```
+('main ', 1, [0, 1, 2, 3])
+('update', 2, [0, 1, 2, 3, 4])
+('main :', 1, [0, 1, 2, 3, 4])
+```
+---------
+```
+def increment(n):
+    n += 1
+    print(n)
+
+n = 1
+increment(n)
+print(n)
+```
+returns:
+```
+2
+1
+```
+
+
+## Classes and Object-Oriented Programming
