@@ -84,3 +84,26 @@ NumPy array can also be indexed using logical indices. Can have an array consist
 Note* When you **slice** an array using the color operator you get a view of the object, meaning that if you modify it, the original array will also be modified.  When you **index** an array you get a copy of the original data.
 - slice = view
 - index = copy
+
+## Building and Examining NumPy Arrays
+
+Ways to construct arrays with fixed start, and end variables, so that the other elements are uniformly spaced between them.  <br/>
+`np.linspace()`  
+
+```
+print (np.linspace(0, 100, 10))
+#creates 10 evenly spaced numbers from 0 to 100
+[   0.           11.11111111   22.22222222   33.33333333   44.44444444
+   55.55555556   66.66666667   77.77777778   88.88888889  100.        ]
+print (np.logspace(1, 2, 10))
+#creates 10 numbers from 10 to 100. log of 10 is 1 and log of 100 is 2
+[  10.           12.91549665   16.68100537   21.5443469    27.82559402
+   35.93813664   46.41588834   59.94842503   77.42636827  100.        ]
+```
+`.shape` number of columns and rows `.size` number of elements
+size and shape are attributes not methods of the arrays
+```
+R = np.random.random(10)
+print (np.any(R > 0.9)) --> sometimes True, sometimes False
+print (np.all(R >= 0.1)) --> sometimes True, sometimes False
+```
