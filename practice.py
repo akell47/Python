@@ -28,29 +28,42 @@ print '---------'
 # while n < 10:
 #     n = increment(n)
 # print(n)
+print '--------'
+# ml = [5,9,3,6,8,11,4,3]
+#
+# ml.sort()
+#
+# print "ml:",ml
+# print "min",min(ml)
+# ml.remove(3)
+# print "ml remove 3",ml
+#
+# class MyList(list):
+#     def remove_min(self):
+#         self.remove(min(self))
+#     def remove_max(self):
+#         self.remove(max(self))
+#
+# x = [1,2,3,4,5,6,7,8,9]
+# print "x:",x
+# y = MyList(x)
+# print dir(x)
+# print dir(y)
+#
+# y.remove_min()
+# print "y.remove_min",y
+# y.remove_max()
+# print "y.remove_min",y
+print '--------'
 
-ml = [5,9,3,6,8,11,4,3]
-
-ml.sort()
-
-print "ml:",ml
-print "min",min(ml)
-ml.remove(3)
-print "ml remove 3",ml
-
-class MyList(list):
-    def remove_min(self):
-        self.remove(min(self))
+class NewList(list):
     def remove_max(self):
         self.remove(max(self))
+    def append_sum(self):
+        self.append(sum(self))
 
-x = [1,2,3,4,5,6,7,8,9]
-print "x:",x
-y = MyList(x)
-print dir(x)
-print dir(y)
-
-y.remove_min()
-print "y.remove_min",y
-y.remove_max()
-print "y.remove_min",y
+x = NewList([1,2,3])
+while max(x) < 10:
+    x.remove_max()
+    x.append_sum()
+print(x)

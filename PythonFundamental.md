@@ -494,5 +494,3 @@ The name of the class is called "self" and is always passed as the first argumen
 `print dir(x)` - normal methods available <br/>
 `print dir(y)` - additional methods of `__remove_min__` and `__remove_max__` are available and can be called on y. <br/>
  `y.remove_min()` <br/>
-
- 
