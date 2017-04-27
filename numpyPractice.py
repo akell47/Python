@@ -42,9 +42,36 @@ import numpy as np
 # np.array([2,4]) + np.array([6,7])
 
 
-x = np.array([1,2,5])
-print (x[1:2])
+# x = np.array([1,2,5])
+# print (x[1:2])
+#
+# a = np.array([1,2])
+# b = np.array([3,4,5])
+# print (a + b)
 
-a = np.array([1,2])
-b = np.array([3,4,5])
-print (a + b)
+z1 = np.array([1,3,5,7,9])
+z2 = z1 + 1
+print (z1)
+print (z2)
+
+ind = [0,2,3]
+
+print (z1[ind])
+
+print (z1 > 6)
+
+print (z1[z1 > 6])
+print (z2[z1 > 6])
+
+# w = z1[0:3]
+# print (w)
+
+# w[0] = 3
+# print (w)
+
+print (z1)
+
+ind = np.array([0,1,2])
+
+w = z1[ind]
+print (w)

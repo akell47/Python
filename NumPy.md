@@ -29,7 +29,7 @@ prints
 ```
 `np.array` create an empty array. Allocates the requested space for the array but does not initialize it. <br/>
 When you construct a numpy array - elements of each row is a list then define the entire table as a list that contains at its elements each of the lists of the row elements you've defined. <br/>
-`a = np.array([[1,3], [5,9]])` - nested list inside pf parentheses
+`a = np.array([[1,3], [5,9]])` - nested list inside of parentheses
 ```
 print (a)
 [[1 3]
@@ -65,3 +65,22 @@ Adds together the second rows of the two arrays. `X[1] + Y[1]` is the same thing
 `np.array([2,4]) + np.array([6,8])` --> `array([8,12])`
 
 ## Indexing
+
+NumPy arrays can be indexed with other arrays. <br/>
+
+```
+z1 = np.array([1,3,5,7,9])
+z2 = z1 + 1
+
+ind = [0,2,3]
+
+print (z1[ind])
+```
+prints `[1 5 7]` using ind as the index. <br/>
+
+NumPy array can also be indexed using logical indices. Can have an array consisting of true and false (Boolean elements)
+`print (z1 > 6)` ---> `[False False False True True]` Cal use the Boolean array aka logical array to index another vector.
+`print (z1[z1 > 6])` ---> `[7 9]` <br/>
+Note* When you **slice** an array using the color operator you get a view of the object, meaning that if you modify it, the original array will also be modified.  When you **index** an array you get a copy of the original data.
+- slice = view
+- index = copy
