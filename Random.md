@@ -13,8 +13,8 @@ Three Random dice
 * one has 10 sides
 
 `print (random.choice(random.choice([range(1,7), range(1,9), range(1,11)])))`
-randomly rolls on of the three dice. Everything is an object in Python. The innermost random choice first chooses one object from a sequence. The outermost random choice chooses on of the numbers from the given range object.
-<br/>
+randomly rolls one of the three dice. Everything is an object in Python. The innermost random choice first chooses one object from a sequence. The outermost random choice chooses on of the numbers from the given range object.
+<br/><br/><br/>
 `print (random.choice(random.choice([range(1,7), range(1,9), range(1,11)])))`
 sums random integers from 0 to 9 <br/>
-`print (sum(random.sample(range(10),10)))` makes a random list of numbers between 0-9 - so sum is always 45. 
+`print (sum(random.sample(range(10),10)))` makes a random list of numbers between 0-9 - so sum is always 45.  <br/><br/>
