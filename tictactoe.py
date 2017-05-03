@@ -29,24 +29,35 @@ def possibilities(board):
 
 # print (possibilities(board))
 
-def random_place(board, player):
-    # get all the possibilities
-    # find a random one
-    possibleplaces = possibilities(board)
-    selection = random.choice(possibleplaces)
-    return place(board, player, selection)
+# def random_place(board, player):
+#     # get all the possibilities
+#     # find a random one
+#     possibleplaces = possibilities(board)
+#     selection = random.choice(possibleplaces)
+#     return place(board, player, selection)
 
 # print (random_place(board, 2))
 
 
 board = create_board()
-for i in range(3):
-    for player in [1, 2]:
-        random_place(board, player)
+# for i in range(3):
+#     for player in [1, 2]:
+#         random_place(board, player)
 
 print (board)
 
+def row_win(board, player):
+    if np.all(board[0]) == True:
+        print "WIN"
 
+place(board, 2, (0,0))
+place(board, 2, (0,1))
+place(board, 2, (0,2))
+print (board)
+print np.all(board[0])
+print np.all(board[1])
+print (row_win(board, 2))
+# row_win(board, 1)
 
 
 
