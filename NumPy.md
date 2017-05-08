@@ -107,3 +107,6 @@ R = np.random.random(10)
 print (np.any(R > 0.9)) --> sometimes True, sometimes False
 print (np.all(R >= 0.1)) --> sometimes True, sometimes False
 ```
+`np.all` test whether all array elements along a given axis evaluate to True <br/>
+`np.any` test wheather any element along a given axis evaluates to True <br/>
+Evaluate to True means none of the values = 0. np.nan also evaluates to True because it is also not 0. 

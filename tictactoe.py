@@ -47,17 +47,31 @@ board = create_board()
 print (board)
 
 def row_win(board, player):
-    if np.all(board[0]) == True:
-        print "WIN"
-
+    ind = [0,1,2]
+    if (board[ind] == player).sum() == len(board[0]):
+        return True
+    else:
+        return False
+#
 place(board, 2, (0,0))
-place(board, 2, (0,1))
-place(board, 2, (0,2))
+place(board, 1, (0,1))
+place(board, 1, (0,2))
+place(board, 2, (1,0))
+place(board, 2, (2,0))
 print (board)
-print np.all(board[0])
-print np.all(board[1])
-print (row_win(board, 2))
-# row_win(board, 1)
+#
+print (row_win(board,1))
+
+
+def col_win(board, player):
+    cols = [0,1,2]
+    if (board[:,(cols)] == player).sum() == len(board[0]):
+        return True
+    else:
+        return False
+
+
+print col_win(board, 2)
 
 
 
