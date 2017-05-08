@@ -57,7 +57,9 @@ place(board, 2, (0,0))
 place(board, 1, (0,1))
 place(board, 1, (0,2))
 place(board, 2, (1,0))
-place(board, 2, (2,0))
+place(board, 1, (2,0))
+place(board, 1, (1,1))
+place(board, 1, (2,2))
 print (board)
 #
 print (row_win(board,1))
@@ -70,8 +72,18 @@ def col_win(board, player):
     else:
         return False
 
+print (col_win(board, 2))
 
-print col_win(board, 2)
+def diag_win(board, player):
+    if np.all(np.diagonal(board) == player):
+        return True
+    Other_diag = np.fliplr(board)
+    if np.all(np.diagonal(Other_diag) == player):
+        return True
+    else:
+        return False
+
+print (diag_win(board, 1))
 
 
 
