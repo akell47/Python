@@ -85,6 +85,19 @@ def diag_win(board, player):
 
 print (diag_win(board, 1))
 
+def evaluate(board):
+    # winner = 0
+    for player in [1,2]:
+        if row_win == True:
+            return player
+        elif col_win == True:
+            player = winner
+        elif diag_win == True:
+            player = winner
+    return winner
+        # print str(winner) + " wins"
+
+print (evaluate(board))
 
 
 
