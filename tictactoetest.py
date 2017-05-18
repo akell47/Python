@@ -60,7 +60,7 @@ def row_win(board, player):
     ind = [0,1,2]
     winstatus = False
     for rowindex in ind:
-        print (board[rowindex])
+        # print (board[rowindex])
         if (board[rowindex] == player).sum() == len(board[0]):
             winstatus = True
     return winstatus
@@ -73,7 +73,7 @@ def col_win(board, player):
     winstatus = False
     cols = [0,1,2]
     for colindex in cols:
-        print row_flip[colindex]
+        # print row_flip[colindex]
         if (row_flip[colindex] == player).sum() == len(row_flip[0]):
             winstatus = True
     return winstatus
@@ -100,7 +100,7 @@ def evaluate(board):
             return player
         elif col_win(board, player) == True:
             player = winner
-        elif diag_win == True:
+        elif diag_win(board, player) == True:
             player = winner
         return winner
     if np.all(board != 0) and winner == 0:
