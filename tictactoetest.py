@@ -23,9 +23,9 @@ def place(board, player, position):
 
 # print (board)
 
-def possibilities(board):
-    possible = np.where(board == 0)
-    return zip(possible[0],possible[1])
+# def possibilities(board):
+#     possible = np.where(board == 0)
+#     return zip(possible[0],possible[1])
 
 # print (possibilities(board))
 
@@ -46,33 +46,40 @@ board = create_board()
 
 print (board)
 
-def row_win(board, player):
-    ind = [0,1,2]
-    if (board[ind] == player).sum() == len(board[0]):
-        return True
-    else:
-        return False
-#
-place(board, 2, (0,0))
+place(board, 1, (0,0))
 place(board, 1, (0,1))
 place(board, 1, (0,2))
-place(board, 2, (1,0))
-place(board, 1, (2,0))
+# place(board, 2, (1,0))
+#place(board, 1, (0,2))
 place(board, 1, (1,1))
-place(board, 1, (2,2))
+place(board, 1, (2,1))
+# place(board, 2, (1,2))
 print (board)
-#
-print (row_win(board,1))
 
+def row_win(board, player):
+    ind = [0,1,2]
+    winstatus = False
+    for rowindex in ind:
+        print (board[rowindex])
+        if (board[rowindex] == player).sum() == len(board[0]):
+            winstatus = True
+    return winstatus
+
+print "row_win ONE:",(row_win(board, 1))
+print "-------"
 
 def col_win(board, player):
+    row_flip = np.transpose(board)
+    winstatus = False
     cols = [0,1,2]
-    if (board[:,(cols)] == player).sum() == len(board[0]):
-        return True
-    else:
-        return False
+    for colindex in cols:
+        print row_flip[colindex]
+        if (row_flip[colindex] == player).sum() == len(row_flip[0]):
+            winstatus = True
+    return winstatus
 
-print (col_win(board, 2))
+
+print "col_win player ONE:",(col_win(board, 1))
 
 def diag_win(board, player):
     if np.all(np.diagonal(board) == player):
@@ -83,21 +90,24 @@ def diag_win(board, player):
     else:
         return False
 
-print (diag_win(board, 1))
+# print "diag_win 1:",(diag_win(board, 1))
 
 def evaluate(board):
-    # winner = 0
-    for player in [1,2]:
-        if row_win == True:
+    winner = 0
+    for player in [1, 2]:
+        # Check if `row_win`, `col_win`, or `diag_win` apply.  if so, store `player` as `winner`.
+        if row_win(board, player) == True:
             return player
-        elif col_win == True:
+        elif col_win(board, player) == True:
             player = winner
         elif diag_win == True:
             player = winner
-    return winner
-        # print str(winner) + " wins"
+        return winner
+    if np.all(board != 0) and winner == 0:
+        winner = -1
+        return winner
 
-print (evaluate(board))
+print ("WINNER IS:",(evaluate(board)))
 
 
 
