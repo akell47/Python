@@ -103,7 +103,7 @@ print "------"
 
 def play_game():
     board = create_board()
-    for i in range(4):
+    for i in range(3):
         for player in [1, 2]:
             random_place(board, player)
             evaluation = evaluate(board)
@@ -133,5 +133,5 @@ def play_strategic_game():
 
 print "strategic game",play_strategic_game()
 
-strategic_games = [play_game() for i in range(10)]
+strategic_games = [play_strategic_game() for i in range(10)]
 print strategic_games
