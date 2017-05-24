@@ -132,3 +132,6 @@ def play_strategic_game():
     return winner
 
 print "strategic game",play_strategic_game()
+
+strategic_games = [play_game() for i in range(10)]
+print strategic_games
