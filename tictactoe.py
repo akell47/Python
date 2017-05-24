@@ -34,9 +34,9 @@ def random_place(board, player):
 
 # print ("random_place",(random_place(board, 2)))
 
-for i in range(4):
-    for player in [1, 2]:
-        random_place(board, player)
+# for i in range(4):
+#     for player in [1, 2]:
+#         random_place(board, player)
         #print "player", player
 
 # print (board)
@@ -119,14 +119,14 @@ print games
 
 
 def play_strategic_game():
-    board, winner = create_board(), 0
-    board[1,1] = 1
+    board2, winner = create_board(), 0
+    board2[1,1] = 1
     while winner == 0:
         for player in [2,1]:
             # use `random_place` to play a game, and store as `board`.
             # use `evaluate(board)`, and store as `winner`.
-            random_place(board, player)
-            winner = evaluate(board)
+            board2 = random_place(board2, player)
+            winner = evaluate(board2)
             if winner != 0:
                 break
     return winner
