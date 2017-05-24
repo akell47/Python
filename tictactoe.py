@@ -39,8 +39,8 @@ for i in range(4):
         random_place(board, player)
         #print "player", player
 
-print (board)
-print ("possibilities",(possibilities(board)))
+# print (board)
+# print ("possibilities",(possibilities(board)))
 
 def row_win(board, player):
     ind = [0,1,2]
@@ -51,9 +51,9 @@ def row_win(board, player):
             winstatus = True
     return winstatus
 
-print "row win:",(row_win(board,player))
-print "row win 1:",(row_win(board, 1))
-print "row win 2:",(row_win(board, 2))
+# print "row win:",(row_win(board,player))
+# print "row win 1:",(row_win(board, 1))
+# print "row win 2:",(row_win(board, 2))
 
 def col_win(board, player):
     row_flip = np.transpose(board)
@@ -66,9 +66,9 @@ def col_win(board, player):
     return winstatus
 
 
-print ("column win:",(col_win(board, player)))
-print ("column win 1:",(col_win(board, 1)))
-print ("column win 2:",(col_win(board, 2)))
+# print ("column win:",(col_win(board, player)))
+# print ("column win 1:",(col_win(board, 1)))
+# print ("column win 2:",(col_win(board, 2)))
 
 def diag_win(board, player):
     if np.all(np.diagonal(board) == player):
@@ -79,9 +79,9 @@ def diag_win(board, player):
     else:
         return False
 
-print ("diagonal win:",(diag_win(board, player)))
-print ("diagonal win 1:",(diag_win(board, 1)))
-print ("diagonal win 2:",(diag_win(board, 2)))
+# print ("diagonal win:",(diag_win(board, player)))
+# print ("diagonal win 1:",(diag_win(board, 1)))
+# print ("diagonal win 2:",(diag_win(board, 2)))
 
 def evaluate(board):
     winner = 0
@@ -98,10 +98,37 @@ def evaluate(board):
         winner = -1
         return winner
 
-print ("WINNER IS:",(evaluate(board)))
+# print ("WINNER IS:",(evaluate(board)))
 print "------"
 
-# def play_game():
-#     board = create_board()
-#     while winner == 0:
-#         random_place(board, player)
+def play_game():
+    board = create_board()
+    for i in range(4):
+        for player in [1, 2]:
+            random_place(board, player)
+            evaluation = evaluate(board)
+    return evaluation
+
+import time
+
+start_time = time.clock()
+games = [play_game() for i in range(10)]
+end_time = time.clock()
+print start_time - end_time
+print games
+
+
+def play_strategic_game():
+    board, winner = create_board(), 0
+    board[1,1] = 1
+    while winner == 0:
+        for player in [2,1]:
+            # use `random_place` to play a game, and store as `board`.
+            # use `evaluate(board)`, and store as `winner`.
+            random_place(board, player)
+            winner = evaluate(board)
+            if winner != 0:
+                break
+    return winner
+
+print "strategic game",play_strategic_game()
