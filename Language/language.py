@@ -28,7 +28,7 @@ def count_words(text):
             word_counts[word] = 1
     return word_counts
 
-print (count_words(text))
+# print (count_words(text))
 
 """
 Periods and puncuations are counted as words along with mixed case words"
@@ -55,34 +55,34 @@ def count_words2(text):
             word_counts[word] = 1
     return word_counts
 
-print (count_words2(text))
+# print (count_words2(text))
 
 """
 Python provides a counter tool from the Collections module"
 """
 from collections import Counter
-def count_words_faster(text):
-    text = text.lower()
-    skips = [".", ",", ":", ";", "?", "!", '""', "''" ]
-    for ch in skips:
-        text = text.replace(ch, "")
-    word_counts = Counter(text.split(" "))
-    return word_counts
+# def count_words_faster(text):
+#     text = text.lower()
+#     skips = [".", ",", ":", ";", "?", "!", '""', "''" ]
+#     for ch in skips:
+#         text = text.replace(ch, "")
+#     word_counts = Counter(text.split(" "))
+#     return word_counts
 
-print (count_words_faster(text))
-
-print (count_words2(text) == count_words_faster(text))
-
-print (len(count_words2("This comprehension check is to check for comprehension.")))
-
-print (count_words2(text) is count_words_faster(text))
+# print (count_words_faster(text))
+#
+# print (count_words2(text) == count_words_faster(text))
+#
+# print (len(count_words2("This comprehension check is to check for comprehension.")))
+#
+# print (count_words2(text) is count_words_faster(text))
 
 """
 Reading in a Book
 Character encoding = how a computer reads characters
 UTF-8 dominant encoding
 """
-
+from io import open
 def read_book(title_path):
     """
     Read a book and return it as a string
@@ -108,8 +108,25 @@ how many unique words and frequency in a given book
 """
 
 
+# text_book_German = read_book("./Books/German/shakespeare/Romeo und Julia.txt")
+# word_counts = count_words_faster(text_book_German)
+# (num_unique, counts) = word_stats(word_counts)
+#
+# print ("Number of characters in Romeo und Julia:"),len(text_book_German)
+# print ("Number of words in Romeo und Julia:",num_unique)
+# print ("Number of unique words in Romeo und Julia:", sum(counts))
 
-def word_stats(t):
+def count_words_faster(text):
+    text = text.lower()
+    skips = [".", ",", ":", ";", "?", "!", '""', "'", '\n', "-", "(", ")", "[", "]"]
+    for ch in skips:
+        text = text.replace(ch, "")
+        word_counts = Counter(text.split(" "))
+    return word_counts
+
+print len((count_words_faster(text_book)))
+
+def word_stats(word_counts):
     """return number of unique words and frequencies"""
     num_unique = len(word_counts)
     counts = word_counts.values()
@@ -121,16 +138,27 @@ word_counts = count_words_faster(text_book)
 print ("Number of words in Romeo and Juliet:",(num_unique))
 print ("Number of unique words in Romeo and Juliet:", sum(counts))
 
-# text_book_German = read_book("./Books/German/shakespeare/Romeo und Julia.txt")
-# word_counts = count_words_faster(text_book_German)
-# (num_unique, counts) = word_stats(word_counts)
-#
-# print ("Number of characters in Romeo und Julia:"),len(text_book_German)
-# print ("Number of words in Romeo und Julia:",num_unique)
-# print ("Number of unique words in Romeo und Julia:", sum(counts))
 
-"""
-Reading Multiple Files
-"""
-import os
-book_dir = "./"
+def word_count_distribution(text):
+    dict_words = count_words_faster(text)
+    print "dict_words",dict_words
+    distribution = dict(Counter(dict_words.values()))
+    print "distribution",distribution
+    return distribution
+
+"""text book"""
+distribution = word_count_distribution(text_book)
+
+import numpy as np
+def more_frequent(distribution):
+    counts = list(distribution.keys())
+    frequency_of_counts = list(distribution.values())
+    print "counts", (counts)
+    print "frequency",(frequency_of_counts)
+    cumulative = np.cumsum(frequency_of_counts)
+    print "cumulative",cumulative
+    more_frequent = (1.0 - cumulative) / cumulative[-1]
+    print "more frequent",more_frequent
+    return dict(zip(counts, more_frequent))
+
+print more_frequent(distribution)
